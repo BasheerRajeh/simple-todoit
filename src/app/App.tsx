@@ -1,10 +1,7 @@
+import "../assets/css/app.css";
 
 const App = () => {
-  return (
-    <div>
-        Hello Todoit!
-    </div>
-  );
+    return <div className="text-red-400">Hello Todoit!</div>;
 };
 
 export default App;
