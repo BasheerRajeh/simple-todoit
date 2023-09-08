@@ -21,8 +21,8 @@ const App = () => {
 
     function addTodo(title: string): void {
         return setTodos([
-            ...todos,
             { id: generateId(), title, isCompleted: false },
+            ...todos,
         ]);
     }
 
@@ -30,10 +30,18 @@ const App = () => {
         setTodos(todos.filter((todo) => todo.id !== id));
 
     const toggleTodoStatus = (id: string) => {
-        const newTodos = todos.map((todo) =>
-            todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
-        );
-        setTodos(newTodos);
+        const currentIndex = todos.findIndex((todo) => todo.id === id);
+        setTodos((prev) => {
+            const newTodos = [
+                ...prev.slice(0, currentIndex),
+                ...prev.slice(currentIndex + 1),
+                {
+                    ...prev[currentIndex],
+                    isCompleted: !prev[currentIndex].isCompleted,
+                },
+            ];
+            return newTodos;
+        });
     };
 
     const handleChangeFilter = (filter: IFilter) => {
