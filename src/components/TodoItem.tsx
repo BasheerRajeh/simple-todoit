@@ -14,7 +14,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, onComplete, onRemove }) => {
         <li
             key={todo.id}
             className={twMerge(
-                "py-3 px-3 rounded-lg text-2xl flex items-center justify-between bg-gray-200 gap-4 hover:bg-teal-500/10",
+                "py-3 px-3 rounded-lg text-2xl flex items-center justify-between bg-gray-100 gap-4 hover:bg-teal-500/10",
                 todo.isCompleted ? "bg-sky-100" : ""
             )}
         >
@@ -32,9 +32,19 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, onComplete, onRemove }) => {
                     </svg>
                 ) : null}
             </Button>
-            <h3 className="flex-grow">{todo.title}</h3>
-            <Button onClick={() => onRemove(todo.id)} className="hover:text-rose-500 transition-all">
-                <svg width={16} height={16} >
+            <h3
+                className={twMerge(
+                    "flex-grow",
+                    todo.isCompleted ? "line-through" : ""
+                )}
+            >
+                {todo.title}
+            </h3>
+            <Button
+                onClick={() => onRemove(todo.id)}
+                className="hover:text-rose-500 transition-all"
+            >
+                <svg width={16} height={16}>
                     <use xlinkHref={`${spriteUrl}#cross`}></use>
                 </svg>
             </Button>

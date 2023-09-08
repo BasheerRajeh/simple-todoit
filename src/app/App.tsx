@@ -54,7 +54,7 @@ const App = () => {
     }
 
     return (
-        <LayoutWrapper className="container my-10 shadow-2xl">
+        <LayoutWrapper className="container my-10 shadow-lg rounded-3xl overflow-hidden">
             <AddTodo onAdd={addTodo} />
             <div className="flex justify-between items-center">
             <Filter filter={filter} onFilterChange={handleChangeFilter} />

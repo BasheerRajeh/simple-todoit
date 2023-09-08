@@ -6,7 +6,6 @@ interface LayoutWrapperProps {
     children: React.ReactNode;
     className?: string;
 }
-
 const LayoutWrapper: React.FC<LayoutWrapperProps> = ({
     children,
     className,
@@ -14,7 +13,7 @@ const LayoutWrapper: React.FC<LayoutWrapperProps> = ({
     return (
         <div
             className={twMerge(
-                "mx-auto min-h-screen flex flex-col overflow-x-hidden",
+                "mx-auto flex flex-col overflow-x-hidden",
                 className
             )}
         >
