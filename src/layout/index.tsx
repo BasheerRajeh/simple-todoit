@@ -19,7 +19,7 @@ const LayoutWrapper: React.FC<LayoutWrapperProps> = ({
             )}
         >
             <Header />
-            <main className="flex-grow">{children}</main>
+            <main className="flex-grow p-10">{children}</main>
         </div>
     );
 };

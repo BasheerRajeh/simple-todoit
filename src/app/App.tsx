@@ -2,12 +2,12 @@ import { useState } from "react";
 import LayoutWrapper from "../layout";
 import useLocalStorage from "../hooks/useLocalStorage";
 import { generateId } from "../utils/generate-id";
-import TodoItem from "../components/TodoItem";
 import AddTodo from "../components/AddTodo";
 import Filter from "../components/Filter";
 import { IFilter, ITodo } from "../types";
 
 import "../assets/css/app.css";
+import TodoList from "../components/TodoList";
 
 const App = () => {
     const [todos, setTodos] = useLocalStorage<ITodo[]>("todos", []);
@@ -43,17 +43,12 @@ const App = () => {
     return (
         <LayoutWrapper className="container my-10 shadow-2xl">
             <AddTodo onAdd={addTodo} />
-            <Filter onFilterChange={handleChangeFilter} />
-            <ul>
-                {filteredTodos.map((todo) => (
-                    <TodoItem
-                        todo={todo}
-                        key={todo.id}
-                        onComplete={toggleTodoStatus}
-                        onRemove={removeTodo}
-                    />
-                ))}
-            </ul>
+            <Filter filter={filter} onFilterChange={handleChangeFilter} />
+            <TodoList
+                todos={filteredTodos}
+                onRemove={removeTodo}
+                onToggle={toggleTodoStatus}
+            />
         </LayoutWrapper>
     );
 };
