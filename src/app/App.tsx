@@ -8,6 +8,7 @@ import { IFilter, ITodo } from "../types";
 
 import "../assets/css/app.css";
 import TodoList from "../components/TodoList";
+import Button from "../components/Button";
 
 const App = () => {
     const [todos, setTodos] = useLocalStorage<ITodo[]>("todos", []);
@@ -48,10 +49,17 @@ const App = () => {
         setFilter(filter);
     };
 
+    const handleClearCompleted = ()=>{
+        setTodos((prev)=> prev.filter(todo=> !todo.isCompleted))
+    }
+
     return (
         <LayoutWrapper className="container my-10 shadow-2xl">
             <AddTodo onAdd={addTodo} />
+            <div className="flex justify-between items-center">
             <Filter filter={filter} onFilterChange={handleChangeFilter} />
+            <Button onClick={handleClearCompleted}>Clear Completed</Button>
+            </div>
             <TodoList
                 todos={filteredTodos}
                 onRemove={removeTodo}
