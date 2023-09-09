@@ -6,9 +6,9 @@ import AddTodo from "../components/AddTodo";
 import Filter from "../components/Filter";
 import { IFilter, ITodo } from "../types";
 
-import "../assets/css/app.css";
 import TodoList from "../components/TodoList";
 import Button from "../components/Button";
+import "../assets/css/app.css";
 
 const App = () => {
     const [todos, setTodos] = useLocalStorage<ITodo[]>("todos", []);
