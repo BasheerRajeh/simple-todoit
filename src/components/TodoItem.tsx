@@ -1,4 +1,5 @@
 import { twMerge } from "tailwind-merge";
+import { motion } from "framer-motion";
 import { ITodo } from "../types";
 import Button from "./Button";
 import spriteUrl from "../assets/svg-sprite.svg?url";
@@ -11,7 +12,10 @@ interface TodoItemProps {
 
 const TodoItem: React.FC<TodoItemProps> = ({ todo, onComplete, onRemove }) => {
     return (
-        <li
+        <motion.li
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.5, opacity: 0 }}
             key={todo.id}
             className={twMerge(
                 "py-3 px-3 rounded-lg text-2xl flex items-center justify-between bg-gray-100 gap-4 hover:bg-teal-500/10",
@@ -48,7 +52,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, onComplete, onRemove }) => {
                     <use xlinkHref={`${spriteUrl}#cross`}></use>
                 </svg>
             </Button>
-        </li>
+        </motion.li>
     );
 };
 
