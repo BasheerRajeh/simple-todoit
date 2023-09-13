@@ -1,7 +1,7 @@
-export interface ITodo {
+export type Todo = {
     id: string;
     title: string;
     isCompleted: boolean;
 }
 
-export type IFilter = "all" | "completed" | "uncompleted";
+export type Filter = "all" | "completed" | "uncompleted";

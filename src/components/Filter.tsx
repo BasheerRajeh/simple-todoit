@@ -1,15 +1,15 @@
-import { IFilter } from "../types";
+import { Filter as FilterType } from "../types";
 import Button from "./Button";
 
 interface FilterProps {
-    filter: IFilter;
-    onFilterChange: (filter: IFilter) => void;
+    filter: FilterType;
+    onFilterChange: (filter: FilterType) => void;
 }
 const filterStyle = "border-green-500 hover:border-green-700";
 
 const Filter: React.FC<FilterProps> = ({ filter, onFilterChange }) => {
     return (
-        <div className="flex flex-wrap gap-2 p-3">
+        <div className="flex flex-wrapfi gap-2 p-3">
             <Button
                 varient="outlined"
                 className={filter === "all" ? filterStyle : ""}

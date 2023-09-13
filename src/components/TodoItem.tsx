@@ -1,11 +1,11 @@
 import { twMerge } from "tailwind-merge";
 import { motion } from "framer-motion";
-import { ITodo } from "../types";
+import { Todo } from "../types";
 import Button from "./Button";
 import spriteUrl from "../assets/svg-sprite.svg?url";
 
 interface TodoItemProps {
-    todo: ITodo;
+    todo: Todo;
     onComplete: (id: string) => void;
     onRemove: (id: string) => void;
 }

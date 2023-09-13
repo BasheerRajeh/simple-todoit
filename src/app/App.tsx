@@ -4,15 +4,15 @@ import useLocalStorage from "../hooks/useLocalStorage";
 import { generateId } from "../utils/generate-id";
 import AddTodo from "../components/AddTodo";
 import Filter from "../components/Filter";
-import { IFilter, ITodo } from "../types";
+import { Filter as FilterType, Todo } from "../types";
 
 import TodoList from "../components/TodoList";
 import Button from "../components/Button";
 import "../assets/css/app.css";
 
 const App = () => {
-    const [todos, setTodos] = useLocalStorage<ITodo[]>("todos", []);
-    const [filter, setFilter] = useState<IFilter>("all");
+    const [todos, setTodos] = useLocalStorage<Todo[]>("todos", []);
+    const [filter, setFilter] = useState<FilterType>("all");
 
     const filteredTodos = todos.filter((todo) => {
         if (filter === "all") return true;
@@ -45,7 +45,7 @@ const App = () => {
         });
     };
 
-    const handleChangeFilter = (filter: IFilter) => {
+    const handleChangeFilter = (filter: FilterType) => {
         setFilter(filter);
     };
 

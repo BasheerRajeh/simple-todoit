@@ -1,9 +1,9 @@
 import { AnimatePresence } from "framer-motion";
-import { ITodo } from "../types";
+import { Todo } from "../types";
 import TodoItem from "./TodoItem";
 
 interface TodoListProps {
-    todos: ITodo[];
+    todos: Todo[];
     onToggle: (id: string) => void;
     onRemove: (id: string) => void;
 }
