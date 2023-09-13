@@ -6,7 +6,7 @@ const Header = () => {
             <h1 className="text-5xl font-bold tracking-wider select-none">
                 ToDo IT
             </h1>
-            <p className='font-bold text-2xl'>{format(new Date(), 'dd MMM yyyy')}</p>
+            <p className='font-bold text-4xl'>{format(new Date(), 'dd MMM yyyy')}</p>
         </div>
     );
 };

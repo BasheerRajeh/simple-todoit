@@ -38,7 +38,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, onComplete, onRemove }) => {
             </Button>
             <h3
                 className={twMerge(
-                    "flex-grow",
+                    "flex-grow text-3xl",
                     todo.isCompleted ? "line-through" : ""
                 )}
             >
